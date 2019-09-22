@@ -1,0 +1,34 @@
+function ramu(f)
+{
+var nn=f.nm.value;
+if(nn.length==0)
+{
+alert('Name required');   f.nm.focus();
+return false;
+}
+var v='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz .';
+document.getElementById("nameErrorSection").innerHTML="";
+var e=0;
+while(e<nn.length)
+{
+if(v.indexOf(nn.charAt(e))==-1)
+{
+document.getElementById("nameErrorSection").innerHTML="Invalid data in name";
+f.nm.focus();
+return false;
+}
+e++;
+}
+if(f.sex[0].checked==false && f.sex[1].checked==false)
+{
+alert("Select gender");
+return false;
+}
+if(f.ct.selectedIndex==0)
+{
+alert("Select a city");
+f.ct.focus();
+return false;
+}
+return true;
+}

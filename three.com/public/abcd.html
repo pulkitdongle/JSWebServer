@@ -1,0 +1,71 @@
+<!Doctype html>
+<html lang='en'>
+<head>
+<meta charset='utf-8'>
+<title>three.com</title>
+<script>
+function ramu(f)
+{
+var nn=f.nm.value;
+if(nn.length==0)
+{
+alert('Name required');   f.nm.focus();
+return false;
+}
+var v='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz .';
+document.getElementById("nameErrorSection").innerHTML="";
+var e=0;
+while(e<nn.length)
+{
+if(v.indexOf(nn.charAt(e))==-1)
+{
+document.getElementById("nameErrorSection").innerHTML="Invalid data in name";
+f.nm.focus();
+return false;
+}
+e++;
+}
+if(f.sex[0].checked==false && f.sex[1].checked==false)
+{
+alert("Select gender");
+return false;
+}
+if(f.ct.selectedIndex==0)
+{
+alert("Select a city");
+f.ct.focus();
+return false;
+}
+return true;
+}
+
+</script>
+</head>
+<body>
+<center>
+<h2>Personal Information</h2>
+<form action='/three.com/ProcessForm'  onsubmit='return ramu(this)'>
+<table border='1'>
+<tr><td>
+Name</td><td>
+<input type='text' name='nm' id='nm' >
+<span id='nameErrorSection'></span>
+</td></tr><tr><td>
+Gender</td><td>
+Male <input type='radio' name='sex' id='ml' value='M'>
+&nbsp;&nbsp;&nbsp;
+Female <input type='radio' name='sex' id='fe' value='F'>
+</td></tr><tr><td>
+Select city</td><td>
+<select name='ct' id='ct'>
+<option value='-1'>&lt;Select&gt;</option>
+<option value='101'>Pune</option>
+<option value='102'>Ujjain</option>
+<option value='103'>Indore</option>
+</select></td></tr></tr><tr>
+<td colspan='2' align='center'>
+<input type='submit' value='Save'></td></tr></table>
+</form>
+</center>
+</body>
+</html>

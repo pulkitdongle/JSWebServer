@@ -1,0 +1,51 @@
+module.exports=function(request,response)
+{
+var nn=request.queryStringParameters["nm"];
+var ss=request.queryStringParameters["sex"];
+response.writeHead(200,{"content-type":"text/html"});
+response.write("<!Doctype html>");
+response.write("<html lang='en'>");
+response.write("<head>");
+response.write("<meta charset='utf-8'>");
+response.write("<title>two.com</title>");
+response.write("<script>");
+response.write("function ramu(f)");
+response.write("{");
+response.write("if(f.ct.selectedIndex==0)");
+response.write("{");
+response.write("alert('Select a city');");
+response.write("f.ct.focus();");
+response.write("return false;");
+response.write("}");
+response.write("return true;");
+response.write("}");
+response.write("</script>");
+response.write("</head>");
+response.write("<body>");
+response.write("<center>");
+response.write("<h1>Session Tracking Example</h1>");
+response.write("<h4><u>Using Hidden Form Field</u></h4>");
+response.write("<h2>Personal Information - Page 3</h2>");
+response.write("Name : <b>"+nn+"</b></br>");
+response.write("Sex : <b>"+ss+"</b></br>");
+response.write("<form action='/two.com/ccc.js'  onsubmit='return ramu(this)'>");
+response.write("<input type='hidden' name='nm' id='nm' value='"+nn+"'>");
+response.write("<input type='hidden' name='sex' id='sex' value='"+ss+"'>");
+response.write("<table>");
+response.write("<tr><td>");
+response.write("Select city</td><td>");
+response.write("<select name='ct' id='ct'>");
+response.write("<option value='-1'>&lt;Select&gt;</option>");
+response.write("<option value='101'>Pune</option>");
+response.write("<option value='102'>Ujjain</option>");
+response.write("<option value='103'>Indore</option>");
+response.write("</select></td></tr></tr><tr>");
+response.write("<td colspan='2' align='center'>");
+response.write("<input type='submit' value='Save'></td></tr></table>");
+response.write("</form>");
+response.write("</center>");
+response.write("</body>");
+response.write("</html>");
+};
+
+

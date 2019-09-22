@@ -1,0 +1,7 @@
+{
+"resources":[
+{"uri" : "/ProcessForm", "file": "js/aaa.js"},
+{"uri" : "/SaveData", "file": "js/bbb.js"}
+],
+"sessionTimeout":3
+}
